@@ -23,7 +23,9 @@ from ccxt.base.precise import Precise
 
 
 class hyperliquid(Exchange, ImplicitAPI):
-
+"""
+CHECK (JUN)
+"""
     def describe(self) -> Any:
         return self.deep_extend(super(hyperliquid, self).describe(), {
             'id': 'hyperliquid',
@@ -1501,8 +1503,8 @@ class hyperliquid(Exchange, ImplicitAPI):
             'grouping': 'na',
             # 'brokerCode': 1,  # cant
         }
-        if vaultAddress is None:
-            orderAction['brokerCode'] = 1
+        # if vaultAddress is None:
+        #     orderAction['brokerCode'] = 1
         signature = self.sign_l1_action(orderAction, nonce, vaultAddress)
         request: dict = {
             'action': orderAction,
