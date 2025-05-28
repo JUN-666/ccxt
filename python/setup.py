@@ -76,8 +76,19 @@ setup(
     ],
 
     keywords=package['keywords'],
-    packages=find_packages(exclude=['ccxt.async_support*'] if is_python_2 else []),
+    # packages=find_packages(exclude=['ccxt.async_support*'] if is_python_2 else []),
 
+
+    # --- fix ---
+    package_dir={
+        '': 'python',
+    },
+    packages=find_packages(
+        where='python', 
+        exclude=['ccxt.async_support*'] if is_python_2 else [] 
+    ),
+    # --- fix ---
+    
     install_requires=[
         'setuptools>=60.9.0',
         'certifi>=2018.1.18',
